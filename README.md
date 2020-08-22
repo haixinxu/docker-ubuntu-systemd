@@ -1,34 +1,23 @@
-# Systemd-enabled Debian image for Docker
+# Systemd-enabled Ubuntu image for Docker
 
-[![](https://img.shields.io/github/issues-raw/haixinxu/docker-debian-systemd.svg?style=flat-square)](https://github.com/alehaa/haixinxu/docker-debian-systemd/issues)
+[![](https://img.shields.io/github/issues-raw/haixinxu/docker-ubuntu-systemd.svg?style=flat-square)](https://github.com/alehaa/haixinxu/docker-ubuntu-systemd/issues)
 [![](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
-[![Docker Pulls](https://img.shields.io/docker/pulls/jerryxhx/debian-systemd.svg?style=flat-square)](https://hub.docker.com/r/jerryxhx/debian-systemd/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/jerryxhx/ubuntu-systemd.svg?style=flat-square)](https://hub.docker.com/r/jerryxhx/ubuntu-systemd/)
 
 
 ## About
 
-This Docker image enhances the [Debian image](https://hub.docker.com/_/debian)
+This Docker image enhances the [ubuntu image](https://hub.docker.com/_/ubuntu)
 to be run like a VM or LXC container including systemd as init system and other
 utilities.
 
-In addition to systemd cron and anacron will be installed. However, in contrast
-to the official Debian CD, rsyslog will *NOT* be installed, as journald should
-fit most needs.
-
 ## Usage
 
-For Debian stable run:
+For ubuntu LTS run:
 ```
 docker run -d -it                       \
     -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
-    jerryxhx/debian-systemd:stable
-```
-
-For Debian testing run:
-```
-docker run -d -it                       \
-    -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
-    jerryxhx/debian-systemd:testing
+    jerryxhx/ubuntu-systemd:latest
 ```
 
 #### Run at Docker for Mac
@@ -48,14 +37,6 @@ mount -t cgroup -o none,name=systemd cgroup /sys/fs/cgroup/systemd
 EOF
 exit
 ```
-
-## Autobuild
-
-At the moment, this image does **NOT** support autobuild, as (at the time of
-writing this) the Docker cloud does not support multiarch builds. However, this
-image will be updated on a regular basis by
-[scheduled builds](https://git.mksec.de/ahaase/docker-debian-systemd/pipelines).
-
 
 ## License
 
